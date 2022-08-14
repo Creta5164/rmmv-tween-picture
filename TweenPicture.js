@@ -465,7 +465,7 @@ function ShakePicture(id, destPower, duration) {
         return 0.5*(Math.sqrt(1-(t-=2)*t)+1);
     };
     Ease.BounceIn = function(t) {
-        return 1-Ease.bounceOut(1-t);
+        return 1-Ease.BounceOut(1-t);
     };
     Ease.BounceOut = function(t) {
         if (t < 1/2.75) {
@@ -480,7 +480,7 @@ function ShakePicture(id, destPower, duration) {
     };
     Ease.BounceInOut = function(t) {
         if (t<0.5) return Ease.bounceIn (t*2) * .5;
-        return Ease.bounceOut(t*2-1)*0.5+0.5;
+        return Ease.BounceOut(t*2-1)*0.5+0.5;
     };
     Ease.ElasticIn    = Ease.getElasticIn(1,0.3);
     Ease.ElasticOut   = Ease.getElasticOut(1,0.3);
