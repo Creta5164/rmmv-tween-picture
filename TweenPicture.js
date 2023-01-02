@@ -239,7 +239,7 @@ function ShakePicture(id, destPower, duration) {
         if (this._easing in Ease)
             return Ease[this._easing](1 - (this._duration / this._totalDuration));
         
-        return Ease.linear(1 - (this._duration / this._totalDuration));
+        return Ease.Linear(1 - (this._duration / this._totalDuration));
     }
     
     Game_Picture.prototype.normalizedToneTweenTime = function() {
@@ -247,7 +247,7 @@ function ShakePicture(id, destPower, duration) {
         if (this._easing in Ease)
             return Ease[this._easing](1 - (this._toneDuration / this._toneTotalDuration));
         
-        return Ease.linear(1 - (this._toneDuration / this._toneTotalDuration));
+        return Ease.Linear(1 - (this._toneDuration / this._toneTotalDuration));
     }
     
     Game_Picture.prototype.normalizedShakeTweenTime = function() {
@@ -255,7 +255,7 @@ function ShakePicture(id, destPower, duration) {
         if (this._easing in Ease)
             return Ease[this._easing](1 - (this._shakeDuration / this._totalShakeDuration));
         
-        return Ease.linear(1 - (this._shakeDuration / this._totalShakeDuration));
+        return Ease.Linear(1 - (this._shakeDuration / this._totalShakeDuration));
     }
     
     var Game_Picture_update = Game_Picture.prototype.update;
