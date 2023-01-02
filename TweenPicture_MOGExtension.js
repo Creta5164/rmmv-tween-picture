@@ -131,7 +131,6 @@
     
     Game_Picture.prototype.x = function() {
         
-        console.log(this.isMogPositionEffectEnabled() + " , " + this._positionData[MOG_POSITION_DATA_TYPE]);
         if (!this.isMogPositionEffectEnabled()) {
             
             return this._tpX;
