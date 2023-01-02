@@ -132,7 +132,7 @@ function RotatePictureFixed(id, destAngle, duration) {
         
     */
     
-    //https://github.com/FreyaHolmer/Mathfs/blob/master/Runtime/Mathfs.cs#L1193
+    //https://github.com/FreyaHolmer/Mathfs/blob/73710f551ba7ca6238dc1755194d4850bc957c4b/Runtime/Mathfs.cs#L1221-L1226
     function lerpAngle(a, b, t) {
     
         var delta = repeat((b - a), (Math.PI * 2));
@@ -143,13 +143,13 @@ function RotatePictureFixed(id, destAngle, duration) {
         return a + delta * t;
     }
     
-    //https://github.com/FreyaHolmer/Mathfs/blob/master/Runtime/Mathfs.cs#L632
+    //https://github.com/FreyaHolmer/Mathfs/blob/73710f551ba7ca6238dc1755194d4850bc957c4b/Runtime/Mathfs.cs#L650
     function repeat(value, length) {
         
         return clamp( value - Math.floor( value / length ) * length, 0, length );
     }
     
-    //https://github.com/FreyaHolmer/Mathfs/blob/master/Runtime/Mathfs.cs#L332
+    //https://github.com/FreyaHolmer/Mathfs/blob/73710f551ba7ca6238dc1755194d4850bc957c4b/Runtime/Mathfs.cs#L350
     function clamp(value, min, max) {
         
         if( value < min ) value = min;
