@@ -101,6 +101,8 @@ SetPictureEase(1);
 
 # Tween Picture Rotation Extension
 
+![preview](./rotation-extension.gif)
+
 이 플러그인은 회전에 easing 애니메이션을 사용할 수 있도록 해주는 TweenPicture.js의 애드온 플러그인입니다.
 
 ## 한계

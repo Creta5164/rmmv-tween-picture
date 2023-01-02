@@ -100,6 +100,8 @@ Available ease list :
 
 # Tween Picture Rotation Extension
 
+![preview](./rotation-extension.gif)
+
 This plugin is addon for `TweenPicture.js` that adds animate rotation feature.
 
 ## Limitation
