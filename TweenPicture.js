@@ -18,8 +18,10 @@
  * 
  * Limitation
  * 
- * This plugin does not support rotation due to differences in RPG Maker's intent and design.
- * 
+ * This plugin does not support rotation due to differences
+ *  in RPG Maker's intent and design.
+ * But you can implement rotate with easing feature
+ *  with TweenPictureRotationExtension plugin.
  * 
  * Usage
  * 
@@ -30,7 +32,7 @@
  * - Picture ID  : Picture's ID you want to add easing.
  * - Easing type : Easing type you want to apply to picture.
  * 
- * Example : Use Easing as BounceOut to Picture 1.
+ * Example : Use Easing as BounceOut to picture 1.
  * SetPictureEase(1, 'BounceOut');
  * 
  * 
@@ -40,7 +42,7 @@
  * 
  * - Picture ID : Picture's ID you want to reset easing type.
  * 
- * Example : Reset Easing to plugin's default type to Picture 1.
+ * Example : Reset Easing to plugin's default type to picture 1.
  * SetPictureEase(1);
  * 
  * 
@@ -55,9 +57,8 @@
  *   If you want to wait until finish this effect,
  *   add delay event after this script event.
  * 
- * Example :
+ * Example : Apply shake intensity of 10 to picture 1 over 60 frames
  * ShakePicture(1, 10, 60);
- * //Apply shake intensity of 10 to Picture 1 over 60 frames
  * 
  * 
  * Available ease list :
@@ -140,6 +141,8 @@ function ShakePicture(id, destPower, duration) {
     if (target)
         target.shake(destPower, duration);
 }
+
+let TweenPicture = {};
 
 (function() {
     
@@ -377,7 +380,7 @@ function ShakePicture(id, destPower, duration) {
     * OTHER DEALINGS IN THE SOFTWARE.
     */
     
-    var Ease = {};
+    var Ease = TweenPicture.Ease = {};
     
     Ease.Linear = function(t) { return t; };
     Ease.None = Ease.Linear;

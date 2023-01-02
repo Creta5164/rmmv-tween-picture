@@ -13,6 +13,9 @@ Recommanded MV version : `1.6.2^`
 
 This plugin does not support rotation due to differences in RPG Maker's intent and design.
 
+But you can implement rotate with easing feature with `TweenPictureRotationExtension` plugin.  
+For details, see [Tween Picture Rotation Extension](#tween-picture-rotation-extension).
+
 ## Usage
 
 If you want to use easing to picture at moment, add below script event before move / change tone of picture event.
@@ -92,3 +95,65 @@ Available ease list :
 - [ElasticIn](https://easings.net/#easeInElastic)
 - [ElasticOut](https://easings.net/#easeOutElastic)
 - [ElasticInOut](https://easings.net/#easeInOutElastic)
+
+---
+
+# Tween Picture Rotation Extension
+
+This plugin is addon for `TweenPicture.js` that adds animate rotation feature.
+
+## Limitation
+
+This plugin may not be compatible with third party plugins that rotate pictures.
+
+## Usage
+
+You must place this below `TweenPicture` plugin.
+
+> * All movements available here are applied to the Tween Picture's easing effect.
+> * All functions of this plugin do not wait for events.  
+>   If you want to wait for the rotation animation to finish,
+>   specify a wait event after every rotation script event
+>   for as long as it takes.
+
+Basic usage is simple, add below script event to rotate picture.
+
+```
+RotatePicture(<Picture ID>, <Degree>, <Duration>);
+```
+
+- `Picture ID` : Picture's ID you want to rotate.
+- `Degree` : Destination degree of rotation.
+- `Duration` : Duration (frames) of rotation move.  
+  Set `0` to rotate immediately.
+
+Note that, basic rotation is moves to closest way to target degree.  
+It never rotates over 180 degree way.
+
+Example : Rotate to -45 degree to picture 1.  
+(It'll be 315 degree.)
+```js
+RotatePicture(1, -45, 60);
+```
+
+You can use this instead to rotate the arrival degree by its absolute value.
+
+```
+RotatePictureFixed(<Picture ID>, <Degree>, <Duration>);
+```
+
+- `Picture ID` : Picture's ID you want to rotate.
+- `Degree` : Destination degree of rotation. (absolute)
+- `Duration` : Duration (frames) of rotation move.  
+  Set `0` to rotate immediately.
+
+Using this will unconditionally rotate the picture from the current degree value to target degree value.
+
+For example, when the picture is at 0 degrees, using 1080 (360 x 3) will make it rotate 3 times.
+
+Example : Rotate picture 1 by 1080 degrees for make it rotates 3 times.  
+(Rotates 1080 degrees from the current degree of the picture)
+
+```js
+RotatePictureFixed(1, 1080, 300);
+```
