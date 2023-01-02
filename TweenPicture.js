@@ -1,6 +1,6 @@
 /*:
  * @plugindesc This RPG Maker MV plugin simply adds easing feature to the movement and tone changes of the Picture.
- * Version : 1.0
+ * Version : 1.1
  * @author Creta Park (https://creft.me/cretapark)
  *
  * @help
@@ -262,9 +262,12 @@ function ShakePicture(id, destPower, duration) {
     Game_Picture.prototype.update = function() {
         
         Game_Picture_update.call(this);
-        this._x = this._sourceX;
-        this._y = this._sourceY;
+        this.updateTween();
+    }
+    
+    Game_Picture.prototype.updateTween = function() {
         
+        //TODO : Add more features if necessary.
         this.updateShake();
     }
     
@@ -296,7 +299,14 @@ function ShakePicture(id, destPower, duration) {
         }
     }
     
+    var Game_Picture_updateMove = Game_Picture.prototype.updateMove;
     Game_Picture.prototype.updateMove = function() {
+        
+        Game_Picture_updateMove.call(this);
+        this.updateTweenMove();
+    };
+    
+    Game_Picture.prototype.updateTweenMove = function() {
         
         if (this._duration > 0) {
             
@@ -308,16 +318,13 @@ function ShakePicture(id, destPower, duration) {
             this._scaleY  = Math.lerp(this._fromScaleY,  this._targetScaleY,  t);
             this._opacity = Math.lerp(this._fromOpacity, this._targetOpacity, t);
             
-            this._duration--;
+        } else {
             
-            if (this._duration <= 0) {
-                
-                this._sourceX = this._targetX;
-                this._sourceY = this._targetY;
-                this._scaleX  = this._targetScaleX;
-                this._scaleY  = this._targetScaleY;
-                this._opacity = this._targetOpacity;
-            }
+            this._sourceX = this._targetX;
+            this._sourceY = this._targetY;
+            this._scaleX  = this._targetScaleX;
+            this._scaleY  = this._targetScaleY;
+            this._opacity = this._targetOpacity;
         }
     };
 
